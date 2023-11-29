@@ -18,3 +18,23 @@ U
 %src/main/webapp/actionTag/forward.jsp,b/5/b59a7dff9d56c65f75b673351d50a677c437be37
 X
 (src/main/webapp/actionTag/forwardSub.jsp,9/c/9cf2ba7311c29f461d52d125060b86cea0ff2410
+T
+$src/main/webapp/cookie/cookiedel.jsp,b/8/b847303fb6466b46cb39956fff67281794b8b5a8
+T
+$src/main/webapp/cookie/cookieset.jsp,3/2/32de64fe49d822a014b3a057821b58c677cdfe04
+U
+%src/main/webapp/cookie/cookietest.jsp,4/1/41bfabee930c7df9438048a12a2bcdff434820d0
+P
+ src/main/webapp/cookie/login.jsp,9/d/9dd557c01263f8585c90be2295e00a38e3a9753a
+T
+$src/main/webapp/cookie/cookieget.jsp,4/0/40a054ae35ddbd1ca1288b3b5b42838e8bf24e75
+Q
+!src/main/webapp/cookie/logout.jsp,5/1/510a24d1d3b7d38c3f7c3f1746666f744856b14e
+R
+"src/main/webapp/cookie/loginOk.jsp,1/4/14e159af3e7f32fae2066455fe466d0c649e008b
+R
+"src/main/webapp/cookie/welcome.jsp,6/6/66a9d76e6fef34f02dab16c37990c15810b38e88
+]
+-src/main/java/com/example/demo4/Customer.java,f/3/f3211f14b5f10308e6b9bf0b1f9de796b4d55c82
+i
+9src/main/webapp/expressionLanguage/expressionLanguage.jsp,b/e/bef82c7eccbc4aad1c915410059b88da4e0c96c7
