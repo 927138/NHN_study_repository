@@ -3,7 +3,6 @@ package com.example.demo3.servlet;
 import com.example.demo3.dto.Student;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +32,7 @@ public class StudentListServlet extends HttpServlet {
 
 //          RequestDispatcher rd = req.getRequestDispatcher("/student/list.jsp");
 //          rd.forward(req, resp);
-          req.setAttribute("view", "/student/list.do");
+          req.setAttribute("view", "/student/list.jsp");
 
      }
 

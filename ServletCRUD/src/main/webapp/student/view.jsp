@@ -37,7 +37,7 @@
     </tbody>
 </table>
 <ul>
-    <li><a href="/student/list">리스트</a></li>
+    <li><a href="/student/list.do">리스트</a></li>
     <li>
         <c:url var="update_link" value="/student/update.do">
             <c:param name="id" value="${studentObject.id}"/>
