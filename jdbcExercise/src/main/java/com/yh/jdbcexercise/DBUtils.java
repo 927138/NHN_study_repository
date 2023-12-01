@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionMysql {
-     private ConnectionMysql(){}
+public class DBUtils {
+     private DBUtils(){}
 
      public static Connection getConnection(){
 

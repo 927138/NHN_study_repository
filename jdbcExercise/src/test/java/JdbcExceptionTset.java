@@ -1,11 +1,9 @@
-import com.yh.jdbcexercise.ConnectionMysql;
+import com.yh.jdbcexercise.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +16,7 @@ public class JdbcExceptionTset {
 
           String query = "insert into example_student values(100, 'test', 'M' 20)";
 
-          try (Connection connection = ConnectionMysql.getConnection()){
+          try (Connection connection = DBUtils.getConnection()){
                SQLException exception = Assertions.assertThrows(SQLException.class,
                     ()-> {
                          Statement statement = connection.createStatement();

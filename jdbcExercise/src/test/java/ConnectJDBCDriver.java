@@ -1,4 +1,4 @@
-import com.yh.jdbcexercise.ConnectionMysql;
+import com.yh.jdbcexercise.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ public class ConnectJDBCDriver {
      @BeforeAll
      static void setUp(){
           log.info("connection open()");
-          connection = ConnectionMysql.getConnection();
+          connection = DBUtils.getConnection();
      }
 
      @AfterAll
