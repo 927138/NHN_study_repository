@@ -2,7 +2,6 @@ package com.example.demo3.servlet;
 
 import com.example.demo3.dto.Student;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

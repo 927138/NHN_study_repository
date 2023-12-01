@@ -4,7 +4,6 @@ import com.example.demo3.dto.Gender;
 import com.example.demo3.dto.Student;
 import java.io.IOException;
 import java.util.Objects;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,6 +59,6 @@ public class StudentUpdateServlet extends HttpServlet {
           repository.update(student);
 
 //           resp.sendRedirect("/student/view?id=" + student.getId());
-          req.setAttribute("view", "redirect:/student/view?id="+ student.getId());
+          req.setAttribute("view", "/student/view?id="+ student.getId());
      }
 }
