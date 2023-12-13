@@ -1,6 +1,6 @@
-package com.yh.jdbcexercise.student.repository;
+package com.yh.jdbcexercise.repository;
 
-import com.yh.jdbcexercise.student.domain.Student;
+import com.yh.jdbcexercise.domain.Student;
 import java.util.Optional;
 
 public interface StudentRepository {

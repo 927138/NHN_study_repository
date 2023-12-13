@@ -1,9 +1,6 @@
-import com.yh.jdbcexercise.DBUtils;
-import com.yh.jdbcexercise.student.domain.Student;
-import com.yh.jdbcexercise.student.repository.StudentRepository;
-import com.yh.jdbcexercise.student.repository.imp.StudentPrepareStatementRepository;
-import com.yh.jdbcexercise.student.repository.imp.StudentStatementRepository;
-import java.sql.Connection;
+import com.yh.jdbcexercise.domain.Student;
+import com.yh.jdbcexercise.repository.StudentRepository;
+import com.yh.jdbcexercise.repository.imp.StudentPrepareStatementRepository;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.Random;

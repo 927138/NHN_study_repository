@@ -1,4 +1,4 @@
-package com.yh.jdbcexercise.student.domain;
+package com.yh.jdbcexercise.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.yh.jdbcexercise.student.domain;
+package com.yh.jdbcexercise.domain;
 
 public class User {
      private String id;

@@ -1,4 +1,4 @@
-import com.yh.jdbcexercise.DBUtils;
+import com.yh.jdbcexercise.util.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import lombok.extern.slf4j.Slf4j;

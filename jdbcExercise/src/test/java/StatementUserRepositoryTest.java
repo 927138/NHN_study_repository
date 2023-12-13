@@ -1,6 +1,6 @@
-import com.yh.jdbcexercise.student.domain.User;
-import com.yh.jdbcexercise.student.repository.UserRepository;
-import com.yh.jdbcexercise.student.repository.imp.UserStatementRepository;
+import com.yh.jdbcexercise.domain.User;
+import com.yh.jdbcexercise.repository.UserRepository;
+import com.yh.jdbcexercise.repository.imp.UserStatementRepository;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;

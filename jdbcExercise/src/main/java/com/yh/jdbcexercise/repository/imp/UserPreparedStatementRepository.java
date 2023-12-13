@@ -1,8 +1,8 @@
-package com.yh.jdbcexercise.student.repository.imp;
+package com.yh.jdbcexercise.repository.imp;
 
-import com.yh.jdbcexercise.DBUtils;
-import com.yh.jdbcexercise.student.domain.User;
-import com.yh.jdbcexercise.student.repository.UserRepository;
+import com.yh.jdbcexercise.util.DBUtils;
+import com.yh.jdbcexercise.domain.User;
+import com.yh.jdbcexercise.repository.UserRepository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

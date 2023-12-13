@@ -1,4 +1,4 @@
-import com.yh.jdbcexercise.DBUtils;
+import com.yh.jdbcexercise.util.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
