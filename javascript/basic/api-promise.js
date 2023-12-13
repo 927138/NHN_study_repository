@@ -1,12 +1,8 @@
-//TODO#1 - DomContentLoaded 모든 HTML 문서가 로드된 상태 - 그래야 DOM element에 접근할 수 있음
 const SERVER_URL="http://133.186.241.167:8100";
 window.addEventListener("DOMContentLoaded",function(){
-    //TODO#2 - strict 모드 설정
     'use strict';
 
     const loginForm = document.getElementById("login-form");
-    //#TODO#5 login form validation 
-    // 아이디 비밀번호 공백체크 및 focus 처리
     
     const validateForm=function(form){
         if(form['userId'].value.trim() == '' ){
@@ -21,12 +17,8 @@ window.addEventListener("DOMContentLoaded",function(){
         }
     }
 
-    //TODO#3 loginForm submit(전송) 이벤트 등록 submit 이벤트는 로그인 button을 클릭했을때 발생됨 
-    // 단 로그인 버튼의 button type = 'submit'이어야 함, type='button'동작 안 함
     loginForm.addEventListener("submit",function(event){
         event.preventDefault();
-        //TODO#4 loginForm validation 실행 
-        //event.target = form 자체를 의미함.
         if( validateForm(event.target)==false ){
             return ;
         }
@@ -78,7 +70,6 @@ window.addEventListener("DOMContentLoaded",function(){
     });
 });
 
-//TODO#7 로그인 처리
 function doLogin(userId, userPassword){
 
     const promise = new Promise((resolve, reject)=> {
@@ -123,8 +114,6 @@ function getCartItems(userId, cartId){
             if(this.status==200){
                 console.log(this.response);
                 resolve(this.response);
-                //TODO#12 cart-api가 정상적으로 호출되면
-                //parameter로 전달받은 displayCartIitems() 함수 호출
             }else{
                 reject(new Error("get cart items error"));
             }

@@ -1,12 +1,8 @@
-//TODO#1 - DomContentLoaded 모든 HTML 문서가 로드된 상태 - 그래야 DOM element에 접근할 수 있음
 const SERVER_URL="http://133.186.241.167:8100";
 window.addEventListener("DOMContentLoaded",function(){
-    //TODO#2 - strict 모드 설정
     'use strict';
 
     const loginForm = document.getElementById("login-form");
-    //#TODO#5 login form validation 
-    // 아이디 비밀번호 공백체크 및 focus 처리
     
     const validateForm=function(form){
         if(form['userId'].value.trim() == '' ){
@@ -21,12 +17,8 @@ window.addEventListener("DOMContentLoaded",function(){
         }
     }
 
-    //TODO#3 loginForm submit(전송) 이벤트 등록 submit 이벤트는 로그인 button을 클릭했을때 발생됨 
-    // 단 로그인 버튼의 button type = 'submit'이어야 함, type='button'동작 안 함
     loginForm.addEventListener("submit",function(event){
         event.preventDefault();
-        //TODO#4 loginForm validation 실행 
-        //event.target = form 자체를 의미함.
         if( validateForm(event.target)==false ){
             return ;
         }
@@ -34,12 +26,8 @@ window.addEventListener("DOMContentLoaded",function(){
         const userId = event.target['userId'].value;
         const userPassword = event.target['userPassword'].value;
 
-        //TODO#6 로그인 api 호출 
-        // 로그인이 성공하면 동작할 function(user){...} 함수를 parameter로 전달
         
         doLogin(userId, userPassword, function(user){
-            //TODO#9 로그인 성공시 loginSuccess 함수 로직
-            //success ui 디자인
             const loginWrapper = document.getElementById("login-wrapper");
             loginWrapper.setAttribute("style","display:none;");
             const loginSuccess = document.getElementById("login-success");
@@ -53,10 +41,7 @@ window.addEventListener("DOMContentLoaded",function(){
             loginUserName.innerText=user.userName;
             loginCartId.innerText=user.cartId;
 
-            //TODO#10 카트 api 호출
-            //cart api 호출이 성공하면 실행할 function(items){} 함수를 parameter로 전달 
             getCartItems(user.userId, user.cartId, function(items){
-                //TODO#13 displayCartItems 실행
                 const cartTable = document.getElementById("cart-table");
                 const body = cartTable.getElementsByTagName("tbody")[0];
                 const intl = new Intl.NumberFormat();
@@ -84,7 +69,6 @@ window.addEventListener("DOMContentLoaded",function(){
     });
 });
 
-//TODO#7 로그인 처리
 function doLogin(userId, userPassword, loginSuccess){
 
     const xhr = new XMLHttpRequest();
@@ -98,7 +82,6 @@ function doLogin(userId, userPassword, loginSuccess){
     xhr.addEventListener("load",function(){
         if(this.status==200){
             const user = this.response;
-            //TODO#8 로그인 성공시 loginSuccess 함수호출
             loginSuccess(user);
         }else{
             alert(`id, password 를 확인해주세요! : ${this.status} :  ${this.response.message}` );
@@ -117,7 +100,6 @@ function doLogin(userId, userPassword, loginSuccess){
     xhr.send(JSON.stringify(data));
 }
 
-//TODO#11 cart-api 호출
 function getCartItems(userId, cartId, displayCartItems){
     const xhr = new XMLHttpRequest();
     const url =SERVER_URL + "/api/nhnmart/shopping-cart/" + cartId;
@@ -126,8 +108,6 @@ function getCartItems(userId, cartId, displayCartItems){
         if(this.status==200){
             console.log(this.response);
             const items = this.response;
-            //TODO#12 cart-api가 정상적으로 호출되면
-            //parameter로 전달받은 displayCartIitems() 함수 호출
             displayCartItems(items);
         }else{
             console.log(this.response);
