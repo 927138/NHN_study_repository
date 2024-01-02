@@ -1,4 +1,4 @@
-package messageSender;
+package com.nhnacademy.edu.springframework.messageSender;
 
 public class Test {
 
