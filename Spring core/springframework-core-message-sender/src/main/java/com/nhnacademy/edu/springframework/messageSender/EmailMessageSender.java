@@ -2,8 +2,8 @@ package com.nhnacademy.edu.springframework.messageSender;
 
 public class EmailMessageSender implements MessageSender{
 
-     public EmailMessageSender(){
-          System.out.println("Email Class call");
+     public void init(){
+          System.out.println("init method called in EmailMessageSender");
      }
      @Override
      public void sendMessage(User user, String message) {

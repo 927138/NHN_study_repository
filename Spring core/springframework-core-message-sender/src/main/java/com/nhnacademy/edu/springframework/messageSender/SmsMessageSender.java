@@ -3,8 +3,8 @@ package com.nhnacademy.edu.springframework.messageSender;
 public class SmsMessageSender implements MessageSender{
 
 
-     public SmsMessageSender(){
-          System.out.println("SMS class call");
+     public void init(){
+          System.out.println("init method called in SmsMessageSender");
      }
 
      @Override

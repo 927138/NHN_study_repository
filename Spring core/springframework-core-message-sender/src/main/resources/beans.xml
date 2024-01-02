@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="SMS" class="com.nhnacademy.edu.springframework.messageSender.SmsMessageSender"/>
-    <bean id="Email" class="com.nhnacademy.edu.springframework.messageSender.EmailMessageSender" scope="prototype"/>
+    <bean id="SMS" class="com.nhnacademy.edu.springframework.messageSender.SmsMessageSender" init-method="init"/>
+    <bean id="Email" class="com.nhnacademy.edu.springframework.messageSender.EmailMessageSender" scope="prototype" init-method="init"/>
 </beans>
