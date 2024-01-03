@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="service" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">
-        <constructor-arg ref="sms"/>
-    </bean>
-    
+    <context:annotation-config />
+
+<!--    Annotation List DI-->
+    <bean id="autowireTest" class="com.nhnacademy.edu.springframework.messagesender.MessageService"/>
+
+<!--    <bean id="service" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">-->
+<!--        <constructor-arg ref="sms"/>-->
+<!--    </bean>-->
+
 <!--    <bean id="service2" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">-->
 <!--        <property name="messageSender" ref="sms"/>-->
 <!--    </bean>-->
 
-    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="byName"/>
-    
-    <bean id="sms" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" init-method="init"/>
+<!--    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="byName"/>-->
+
+    <bean id="sms" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" init-method="init" >
+        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS">
+            <attribute key="means" value="SMS"/>
+            <attribute key="checking" value="true"/>
+        </qualifier>
+    </bean>
     <bean id="email" class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender" scope="prototype" init-method="init"/>
 </beans>
