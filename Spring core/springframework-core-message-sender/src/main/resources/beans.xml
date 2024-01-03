@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">-->
 
-    <context:annotation-config />
+<!--    <context:annotation-config />-->
 
-<!--    Annotation List DI-->
-    <bean id="autowireTest" class="com.nhnacademy.edu.springframework.messagesender.MessageService"/>
+<!--&lt;!&ndash;    Annotation List DI&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="autowireTest" class="com.nhnacademy.edu.springframework.messagesender.MessageService"/>&ndash;&gt;-->
 
-<!--    <bean id="service" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">-->
-<!--        <constructor-arg ref="sms"/>-->
-<!--    </bean>-->
+<!--&lt;!&ndash;    <bean id="service" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref="sms"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
 
-<!--    <bean id="service2" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">-->
-<!--        <property name="messageSender" ref="sms"/>-->
-<!--    </bean>-->
+<!--&lt;!&ndash;    <bean id="service2" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="messageSender" ref="sms"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
 
-<!--    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="byName"/>-->
-
-    <bean id="sms" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" init-method="init" >
-        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS">
-            <attribute key="means" value="SMS"/>
-            <attribute key="checking" value="true"/>
-        </qualifier>
-    </bean>
-    <bean id="email" class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender" scope="prototype" init-method="init"/>
-</beans>
+<!--&lt;!&ndash;    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="byName"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="sms" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" init-method="init" >&ndash;&gt;-->
+<!--&lt;!&ndash;        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS">&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute key="means" value="SMS"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute key="checking" value="true"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </qualifier>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="email" class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender" scope="prototype" init-method="init"/>&ndash;&gt;-->
+<!--</beans>-->

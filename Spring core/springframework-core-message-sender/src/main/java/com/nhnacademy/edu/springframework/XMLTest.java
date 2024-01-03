@@ -1,5 +1,7 @@
-package com.nhnacademy.edu.springframework.messagesender;
+package com.nhnacademy.edu.springframework;
 
+import com.nhnacademy.edu.springframework.messagesender.MessageSender;
+import com.nhnacademy.edu.springframework.messagesender.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class XMLTest {
