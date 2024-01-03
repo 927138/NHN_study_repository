@@ -3,6 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="SMS" class="com.nhnacademy.edu.springframework.messageSender.SmsMessageSender" init-method="init"/>
-    <bean id="Email" class="com.nhnacademy.edu.springframework.messageSender.EmailMessageSender" scope="prototype" init-method="init"/>
+    <bean id="service" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">
+        <constructor-arg ref="sms"/>
+    </bean>
+    
+<!--    <bean id="service2" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">-->
+<!--        <property name="messageSender" ref="sms"/>-->
+<!--    </bean>-->
+
+    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="byName"/>
+    
+    <bean id="sms" class="com.nhnacademy.edu.springframework.messagesender.SmsMessageSender" init-method="init"/>
+    <bean id="email" class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender" scope="prototype" init-method="init"/>
 </beans>

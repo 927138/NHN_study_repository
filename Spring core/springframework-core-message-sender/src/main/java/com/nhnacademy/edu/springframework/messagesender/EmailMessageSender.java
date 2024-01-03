@@ -1,4 +1,4 @@
-package com.nhnacademy.edu.springframework.messageSender;
+package com.nhnacademy.edu.springframework.messagesender;
 
 public class EmailMessageSender implements MessageSender{
 
