@@ -13,8 +13,8 @@ public class DoorayMessageSender implements MessageSender{
           public void sendMessage(User user, String message){
                new DoorayHookSender(new RestTemplate(), uri)
                        .send(DoorayHook.builder()
-                               .botName("지영훈")
-                               .text("안녕하세요.")
+                               .botName("test")
+                               .text("hello.")
                                .build());
 //               System.out.println("dfsdfsdf");
      }
