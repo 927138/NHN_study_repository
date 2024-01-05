@@ -1,7 +1,0 @@
-= Aspect Oriented Programming(AOP)
-
-=== AOP
-- 프로그램 구조를 다른 방식으로 생각하여 OOP를 보완
-- OOP = Class, AOP = aspect(관점)
-- 관점은 다양한 타입과 객체에 걸친 트랜잭션 같은 관심을 모듈화할 수 있음
-* ㅇㄹ
