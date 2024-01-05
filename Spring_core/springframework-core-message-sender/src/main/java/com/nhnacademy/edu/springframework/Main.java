@@ -1,8 +1,7 @@
 package com.nhnacademy.edu.springframework;
 
 import com.nhnacademy.edu.springframework.messagesender.MessageSendService;
-import com.nhnacademy.edu.springframework.messagesender.MessageSender;
-import com.nhnacademy.edu.springframework.messagesender.User;
+import com.nhnacademy.edu.springframework.domain.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

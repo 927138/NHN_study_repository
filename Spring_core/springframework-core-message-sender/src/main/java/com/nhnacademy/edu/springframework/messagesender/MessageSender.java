@@ -1,5 +1,7 @@
 package com.nhnacademy.edu.springframework.messagesender;
 
+import com.nhnacademy.edu.springframework.domain.User;
+
 public interface MessageSender {
-     void sendMessage(User user, String message);
+     boolean sendMessage(User user, String message);
 }
