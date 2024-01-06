@@ -6,9 +6,9 @@ import com.nhnacademy.edu.springframework.domain.User;
 
 public class DoorayMessageSender implements MessageSender{
 
-     private DoorayHookSender hookSender;
+     private final DoorayHookSender hookSender;
 
-     public void setHookSender(DoorayHookSender hookSender){
+     public DoorayMessageSender(DoorayHookSender hookSender){
           this.hookSender = hookSender;
      }
      @Override

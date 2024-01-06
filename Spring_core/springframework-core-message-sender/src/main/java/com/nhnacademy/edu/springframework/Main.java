@@ -10,9 +10,11 @@ public class Main {
      public static void main(String[] args) {
           User user = new User("123", "123123");
 
-          try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")){
-               MessageSendService service = context.getBean("messageSendService", MessageSendService.class);
-               service.doSendMessage(user, "!234");
-          }
+          AnnotationConfigApplicationContext context =
+                  new AnnotationConfigApplicationContext("com/nhnacademy/edu/springframework");
+
+          MessageSendService service = context.getBean("messageSendService", MessageSendService.class);
+          service.doSendMessage(user, "pass");
+
      }
 }

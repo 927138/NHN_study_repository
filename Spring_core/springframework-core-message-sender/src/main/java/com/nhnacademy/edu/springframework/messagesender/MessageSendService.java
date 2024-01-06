@@ -1,6 +1,7 @@
 package com.nhnacademy.edu.springframework.messagesender;
 
 import com.nhnacademy.edu.springframework.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MessageSendService {
      private final MessageSender messageSender;
