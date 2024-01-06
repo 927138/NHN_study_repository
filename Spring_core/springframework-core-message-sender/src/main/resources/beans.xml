@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="doorayMessageSender" class="com.nhnacademy.edu.springframework.messagesender.DoorayMessageSender">
+        <property name="hookSender" ref="doorayHookSender"/>
+    </bean>
+    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService" autowire="constructor">
+    </bean>
+
+    <bean id="timeLogging" class="com.nhnacademy.edu.springframework.aop.TimeLoggingAdvice"/>
+    <aop:config>
+        <aop:aspect ref="timeLogging">
+            <aop:pointcut id="timeLoggingPoint" expression="execution(* com.nhnacademy.edu.springframework.messagesender.DoorayMessageSender.sendMessage(..))"/>
+            <aop:around method="print" pointcut-ref="timeLoggingPoint"/>
+        </aop:aspect>
+    </aop:config>
+
+
+    <context:property-placeholder location="classpath:doorayUrlPath.properties"/>
+    <bean id="doorayHookSender" class="com.nhn.dooray.client.DoorayHookSender">
+        <constructor-arg ref="restTemplate"/>
+        <constructor-arg name="url" value="${hookUrl}"/>
+    </bean>
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+
+
+</beans>
