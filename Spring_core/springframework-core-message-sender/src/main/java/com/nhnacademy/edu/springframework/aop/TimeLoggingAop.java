@@ -12,11 +12,9 @@ import org.springframework.util.StopWatch;
 @Component
 public class TimeLoggingAop {
 
-     // P_cut
-     @Pointcut("execution(* com.nhnacademy.edu.springframework.messagesender.DoorayMessageSender.sendMessage(..))")
+     @Pointcut("@annotation(com.nhnacademy.edu.springframework.annotation.HookSendMessage)")
      public void timeChecking(){}
 
-     //advise
      @Around("timeChecking()")
      public Object print(ProceedingJoinPoint pjp) throws Throwable {
           StopWatch stopWatch = new StopWatch();
