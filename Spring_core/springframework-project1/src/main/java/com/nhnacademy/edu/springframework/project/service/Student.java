@@ -12,6 +12,10 @@ public class Student {
         this.name = name;
     }
 
+    public int getSeq() {
+        return seq;
+    }
+
     public void setScore(Score score) {
         this.score = score;
     }

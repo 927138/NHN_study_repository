@@ -34,10 +34,9 @@ public class CsvScores implements Scores {
     public void load() {
         InputStream scoreRepositoryPath = getClass().getClassLoader().getResourceAsStream("data/score.csv");
         if(scoreRepositoryPath == null){
-            throw new NullPointerException("students file resource path is null");
+            throw new NullPointerException("score.csv file resource path is null");
         }
 
-        // 변수명 바꾸기 loadScore
         try (BufferedReader loadScore = new BufferedReader(new InputStreamReader(scoreRepositoryPath))){
             String readLine;
             while ((readLine = loadScore.readLine()) != null){

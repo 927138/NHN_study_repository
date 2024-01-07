@@ -3,7 +3,7 @@ package com.nhnacademy.edu.springframework.project.repository;
 import java.util.List;
 
 public interface Scores {
-    void load();
+     void load();
 
-    List<Score> findAll();
+     List<Score> findAll();
 }

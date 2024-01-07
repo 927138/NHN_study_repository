@@ -1,13 +1,12 @@
 package com.nhnacademy.edu.springframework.project.repository;
 
 import com.nhnacademy.edu.springframework.project.service.Student;
-
 import java.util.Collection;
 
 public interface Students {
-    void load();
+     void load();
 
-    Collection<Student> findAll();
+     Collection<Student> findAll();
 
-    void merge(Collection<Score> scores);
+     void merge(Collection<Score> scores);
 }

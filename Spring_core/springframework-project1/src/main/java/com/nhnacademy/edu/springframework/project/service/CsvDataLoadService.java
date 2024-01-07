@@ -6,13 +6,13 @@ import com.nhnacademy.edu.springframework.project.repository.Scores;
 import com.nhnacademy.edu.springframework.project.repository.Students;
 
 public class CsvDataLoadService implements DataLoadService {
-    @Override
-    public void loadAndMerge() {
-        Scores scores = CsvScores.getInstance();
-        scores.load();
+     @Override
+     public void loadAndMerge() {
+          Scores scores = CsvScores.getInstance();
+          scores.load();
 
-        Students students = CsvStudents.getInstance();
-        students.load();
-        students.merge(scores.findAll());
-    }
+          Students students = CsvStudents.getInstance();
+          students.load();
+          students.merge(scores.findAll());
+     }
 }
