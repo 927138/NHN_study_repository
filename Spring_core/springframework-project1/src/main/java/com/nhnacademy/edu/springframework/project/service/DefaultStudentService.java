@@ -1,8 +1,6 @@
 package com.nhnacademy.edu.springframework.project.service;
 
-import com.nhnacademy.edu.springframework.project.repository.CsvStudents;
-import com.nhnacademy.edu.springframework.project.repository.Scores;
-import com.nhnacademy.edu.springframework.project.repository.StudentService;
+import com.nhnacademy.edu.springframework.project.repository.Student;
 import com.nhnacademy.edu.springframework.project.repository.Students;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -15,16 +13,17 @@ public class DefaultStudentService implements StudentService {
      private final Students students;
 
      @Autowired
-     public DefaultStudentService(Students students){
+     public DefaultStudentService(Students students) {
           this.students = students;
      }
+
      @Override
      public Collection<Student> getPassedStudents() {
           // TODO 1 : pass한 학생만 반환하도록 수정하세요.
           // Student 는 Score 를 갖고 있고 Score 에는 pass 여부를 알수 있는 메서드가 있습니다.
           // Java stream api 의 filter() 를 사용하여 필터링된 Student 객체를 리턴 하세요. (Students 와 Student 는 다릅니다.)
 
-          if(students.findAll() == null){
+          if (students.findAll() == null) {
                throw new NullPointerException("student repository is null");
           }
           return students.findAll().stream()
