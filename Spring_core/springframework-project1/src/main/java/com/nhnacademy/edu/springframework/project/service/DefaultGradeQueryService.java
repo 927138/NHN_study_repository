@@ -8,8 +8,20 @@ import com.nhnacademy.edu.springframework.project.repository.Students;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DefaultGradeQueryService implements GradeQueryService {
+
+     private final Students students;
+     private final Scores scores;
+
+     @Autowired
+     public DefaultGradeQueryService(Students students, Scores scores){
+          this.students = students;
+          this.scores = scores;
+     }
 
      @Override
      public List<Score> getScoreByStudentName(String name) {
@@ -23,7 +35,6 @@ public class DefaultGradeQueryService implements GradeQueryService {
           //
           // Hint. CsvStudents 클래스의 findAll() 이 있네요? 적절히 필터링하고 찾아오면 되겠죠?
 
-          Students students = CsvStudents.getInstance();
           return students.findAll().stream()
                   .filter(student -> {
                        try {
@@ -42,7 +53,6 @@ public class DefaultGradeQueryService implements GradeQueryService {
      @Override
      public Score getScoreByStudentSeq(int seq) {
           // TODO 6 : 학번으로 점수를 반환합니다. seq 인자가 학번입니다.
-          Scores scores = CsvScores.getInstance();
           return scores.findAll().stream()
                   .filter(score -> score.getStudentSeq() == seq)
                   .findFirst()

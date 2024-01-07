@@ -9,22 +9,27 @@ import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class CsvStudents implements Students {
 
     private final List<Student> studentList = new LinkedList<>();
 
+    @Autowired
+    public CsvStudents(){}
     /** TODO 3 :
      * Java Singleton 패턴으로 getInstance() 를 구현하세요.
      **/
-    private CsvStudents(){}
-    private static class CsvStudentsSingleton{
-        private static final CsvStudents students = new CsvStudents();
-    }
-    public static Students getInstance() {
-        return CsvStudentsSingleton.students;
-    }
+//    private CsvStudents(){}
+//    private static class CsvStudentsSingleton{
+//        private static final CsvStudents students = new CsvStudents();
+//    }
+//    public static Students getInstance() {
+//        return CsvStudentsSingleton.students;
+//    }
+
 
     // TODO 7 : student.csv 파일에서 데이터를 읽어 클래스 멤버 변수에 추가하는 로직을 구현하세요.
     // 데이터를 적재하고 읽기 위해서, 적절한 자료구조를 사용하세요.
