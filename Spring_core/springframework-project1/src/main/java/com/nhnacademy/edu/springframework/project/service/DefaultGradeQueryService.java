@@ -1,11 +1,28 @@
 package com.nhnacademy.edu.springframework.project.service;
 
+import com.nhnacademy.edu.springframework.project.repository.CsvStudents;
 import com.nhnacademy.edu.springframework.project.repository.Score;
 
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DefaultGradeQueryService implements GradeQueryService {
 
+//    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+//
+//        Student s = new Student(1, "tjfakehlsk?");
+//        Class<? extends Student> c = s.getClass();
+//
+//        Field f  = c.getDeclaredField("name");
+//        f.setAccessible(true);
+//
+//
+//        System.out.println(f.get(s));
+//
+//
+//    }
     @Override
     public List<Score> getScoreByStudentName(String name) {
         // TODO 5: 학생 이름으로 점수를 반환합니다. 동명이인 고려합니다.
@@ -18,7 +35,20 @@ public class DefaultGradeQueryService implements GradeQueryService {
         //
         // Hint. CsvStudents 클래스의 findAll() 이 있네요? 적절히 필터링하고 찾아오면 되겠죠?
         //
-        return null;
+
+        return CsvStudents.getInstance().findAll().stream()
+                .filter(student -> {
+                    try {
+                        Field field = student.getClass().getDeclaredField("name");
+                        field.setAccessible(true);
+
+                        return field.get(student).equals(name);
+                    } catch (NoSuchFieldException | IllegalAccessException e) {
+                         throw new RuntimeException(e);
+                    }
+                })
+                .map(student -> student.getScore())
+                .collect(Collectors.toList());
     }
 
     @Override
