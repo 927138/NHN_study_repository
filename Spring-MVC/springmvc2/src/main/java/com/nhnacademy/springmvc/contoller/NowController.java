@@ -11,16 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NowController {
 
      @GetMapping("/now")
-     public String now(@RequestParam(name = "name") String name, ModelMap model) {
+     public String now(String name, ModelMap model) {
           model.addAttribute("time", new Date().toString());
-          model.addAttribute("name", name);
           return "now";
      }
 
-     @GetMapping("/now/{userId}")
-     public String now(@PathVariable(name = "userId") int userId, ModelMap model) {
-          model.addAttribute("time", new Date().toString());
-          model.addAttribute("userId", userId);
-          return "now";
-     }
 }

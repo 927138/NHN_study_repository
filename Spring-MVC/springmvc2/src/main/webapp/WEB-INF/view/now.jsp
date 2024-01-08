@@ -5,7 +5,5 @@
 
 
 <%= request.getAttribute("time")%> <br/>
-<%= request.getAttribute("name")%><br/>
-<%= request.getAttribute("userId")%>
 
 <%= new Date().toString() %>
