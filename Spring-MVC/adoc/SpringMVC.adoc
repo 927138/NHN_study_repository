@@ -1,3 +1,23 @@
 = Spring MVC
 
-- Model, View, Controller
+- MVC란?
+- MVC1, MVC2의 차이점.
+
+== MVC란?
+- 디자인 패턴 중 하나로 Model, View, Controller로 기능을 분리하는 구조를 가짐.
+- MVC pattern은 MVC1 or MVC2가 있고, MVC1 -> MVC2 개선한 방법으로 생각.
+- Model +
+=> Business Login, Data Infomation
+- View +
+=> User Interface, Client에게 보여지는 화면.
+- Controller +
+=> Model
+
+
+=== MVC1.
+
+
+== Reference
+- Spring MVC Framework document
+* https://docs.spring.io/spring-framework/docs/
+ * https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html

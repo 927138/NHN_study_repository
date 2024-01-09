@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4967b6fd-18d3-43be-b82e-e2e69a35d88c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../adoc/SpringMVC.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/../adoc/SpringMVC.adoc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704678729061</updated>
       <workItem from="1704678730185" duration="7123000" />
-      <workItem from="1704719723483" duration="704000" />
+      <workItem from="1704719723483" duration="4631000" />
     </task>
     <servers />
   </component>

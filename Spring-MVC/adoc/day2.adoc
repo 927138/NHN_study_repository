@@ -1,0 +1,12 @@
+= day2
+
+== HttpMessageConverter
+- java Object - HTTP request/response convert 역할
+- @EnableWebMvc annotation +
+=> WebMvcConfigrationSupport class 에서 addDefaultHttpMessageConverters method에서 default로 지정된 converter를 기본으로 지정 +
+
+==== Default Convert Class
+1. ByteArrayHttpMessageConverter Class +
+2. StringHttpMessageConverter Class +
+3. ResourceHttpMessageConverter Class +
+4. ResourceRegionHttpMessageConverter Class
