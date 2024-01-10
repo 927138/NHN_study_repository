@@ -11,13 +11,16 @@
   <component name="ChangeListManager">
     <list default="true" id="4967b6fd-18d3-43be-b82e-e2e69a35d88c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/config/RootConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/MessageInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/MessageInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/studentModify.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/studentRegister.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/studentView.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/StudentRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/contoller/StudentRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/error.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/loginForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/loginForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/studentView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/studentView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/transLanguage.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "feature/Spring-MVC-practice2",
-    "last_opened_file_path": "/Users/user/Desktop/gitfile/Spring-MVC/springmvc2",
+    "last_opened_file_path": "/Users/user/Desktop/gitfile/Spring-MVC/springmvc2/src/main/java/com/nhnacademy/springmvc/exception",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,12 +80,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/exception" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/repository" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/nhnacademy/springmvc/domain" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nhnacademy.springmvc.exception" />
     </key>
   </component>
   <component name="RunManager">
@@ -185,7 +194,7 @@
       <workItem from="1704678730185" duration="7123000" />
       <workItem from="1704719723483" duration="30582000" />
       <workItem from="1704846139571" duration="18142000" />
-      <workItem from="1704891666935" duration="1645000" />
+      <workItem from="1704891666935" duration="16076000" />
     </task>
     <servers />
   </component>

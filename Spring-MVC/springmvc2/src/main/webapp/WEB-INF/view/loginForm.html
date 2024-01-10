@@ -5,12 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" action="/login">
-  ID: <input type="text" name="id" /><br />
-  PWD: <input type="password" name="pwd" /><br />
-  <br />
-  <input type="submit" />
-</form>
 
+<!-- user가 null인 경우 -->
+<div th:if="${users == null}">
+    <span th:value="${users}"></span>
+    <form method="post" action="/login">
+        ID: <input type="text" name="id" /><br />
+        PWD: <input type="password" name="password" /><br />
+        <br />
+        <input type="submit" />
+    </form>
+</div>
+
+<!-- user가 null이 아닌 경우 -->
+<div th:if="${users != null}">
+    <p>사용자 id : <span th:text="${users.id}"></span></p>
+    <p>사용자 password : <span th:text="${users.password}"></span></p>
+    <form action="/logout">
+        <input type="submit"  value="logout"/>
+    </form>
+    <form action="/student">
+        studentId : <input type="text"  size="10" name="studentId" />
+        <input type="submit" />
+    </form>
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.nhnacademy.springmvc.config;
 
 import com.nhnacademy.springmvc.contoller.ControllerBase;
+import com.nhnacademy.springmvc.interceptor.LoginCheckInterceptor;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -32,14 +33,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
 
      @Override
      public void configureViewResolvers(ViewResolverRegistry registry) {
-//          registry.jsp("/WEB-INF/view/", ".jsp");
           registry.viewResolver(thymeleafViewResolver());
-     }
-
-     @Override
-     public void addViewControllers(ViewControllerRegistry registry) {
-
-          registry.addViewController("/").setViewName("studentRegister");
      }
 
      @Bean
@@ -50,6 +44,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
      @Override
      public void addInterceptors(InterceptorRegistry registry) {
           registry.addInterceptor(new LocaleChangeInterceptor());
+          registry.addInterceptor(new LoginCheckInterceptor()).excludePathPatterns("/login", "/");
      }
 
      @Override
@@ -68,7 +63,6 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
           viewResolver.setTemplateEngine(templateEngine());
           viewResolver.setCharacterEncoding("UTF-8");
           viewResolver.setOrder(1);
-//          viewResolver.setViewNames(new String[] { "thymeleaf/*" });
 
           return viewResolver;
      }

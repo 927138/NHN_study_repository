@@ -34,7 +34,6 @@ public class StudentRegisterController {
           Student student = repository.studentRegister(studentRequest.getName(),
                   studentRequest.getEmail(), studentRequest.getScore(), studentRequest.getComment());
 
-          System.out.println(studentRequest.getScore());
           model.addAttribute("student", student);
           return "studentView";
 
