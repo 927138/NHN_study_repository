@@ -29,7 +29,6 @@ public class RootConfig {
      public UserRepository userRepository(){
           UserRepository userRepository = new UserRepositoryImp();
           userRepository.addUser("admin", "1234");
-
           return userRepository;
      }
 

@@ -1,0 +1,44 @@
+POST http://localhost:8080/students HTTP/1.1
+Content-Type: application/json
+
+{
+  "name" : "hello",
+  "email" : "hi@com.here",
+  "score" : 4,
+  "comment" : "매우부족"
+}
+
+####
+POST http://localhost:8080/students HTTP/1.1
+Content-Type: application/xml
+
+<data>
+  <name>hello</name>
+  <email>hi@com.here</email>
+  <score>4</score>
+  <comment>매우부족</comment>
+</data>
+
+#####
+
+GET http://localhost:8080/students/1 HTTP/1.1
+Content-Type: application/json
+
+#####
+
+GET http://localhost:8080/students/4?mediaType=json HTTP/1.1
+Content-Type: application/xml
+
+#####
+
+
+PUT  http://localhost:8080/students/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name" : "hello",
+  "email": "hi@com.here",
+  "score": 40,
+  "comment": "asdasdasd"
+}
+

@@ -11,7 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
+import org.springframework.http.MediaType;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -36,15 +38,11 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
           registry.viewResolver(thymeleafViewResolver());
      }
 
-     @Bean
-     public LocaleResolver localeResolver() {
-          return new SessionLocaleResolver();
-     }
-
      @Override
      public void addInterceptors(InterceptorRegistry registry) {
           registry.addInterceptor(new LocaleChangeInterceptor());
-          registry.addInterceptor(new LoginCheckInterceptor()).excludePathPatterns("/login", "/");
+          registry.addInterceptor(new LoginCheckInterceptor())
+                  .excludePathPatterns("/login", "/", "/students", "/students/*");
      }
 
      @Override
@@ -53,8 +51,26 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
      }
 
      @Override
+     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+          // parameter, Accept Header 모두 사용.
+          // option : favorParameter(true) > parameter
+          // option : ignoreAcceptHeader(false) > Accept
+          configurer.favorParameter(true)
+                  .parameterName("mediaType")
+                  .ignoreAcceptHeader(false)
+                  .defaultContentType(MediaType.APPLICATION_JSON)
+                  .mediaType("xml", MediaType.APPLICATION_XML)
+                  .mediaType("json", MediaType.APPLICATION_JSON);
+     }
+
+     @Override
      public void setMessageSource(MessageSource messageSource) {
           this.messageSource = messageSource;
+     }
+
+     @Bean
+     public LocaleResolver localeResolver() {
+          return new SessionLocaleResolver();
      }
 
      @Bean

@@ -1,0 +1,7 @@
+<Student>
+    <id>4</id>
+    <name>hello</name>
+    <email>hi@com.here</email>
+    <score>4</score>
+    <comment>매우부족</comment>
+</Student>
