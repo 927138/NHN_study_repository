@@ -5,14 +5,18 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.Value;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
-@Value
-@NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
+
+@Getter
+@Setter
 public class StudentRequest {
-
      @NotBlank
      String name;
 
@@ -28,3 +32,6 @@ public class StudentRequest {
      String comment;
 
 }
+
+//@NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
+
