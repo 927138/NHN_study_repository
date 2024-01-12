@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- user가 null인 경우 -->
+<div th:if="${customer == null}">
+    <span th:value="${customer}"></span>
+    <form method="post" action="/cs/login">
+        ID: <input type="text" name="id" /><br />
+        PWD: <input type="password" name="password" /><br />
+        <br />
+        <input type="submit" />
+    </form>
+</div>
+
+<span th:text="${customer}"></span>
+<!-- user가 null이 아닌 경우 -->
+<div th:if="${customer != null}">
+    <p>사용자 id : <span th:text="${customer.id}"></span></p>
+    <p>사용자 password : <span th:text="${customer.password}"></span></p>
+    <form action="/cs/logout">
+        <input type="submit"  value="logout"/>
+    </form>
+    <form action="/student">
+        studentId : <input type="text"  size="10" name="id" />
+        <input type="submit" />
+    </form>
+</div>
+</body>
+</html>
