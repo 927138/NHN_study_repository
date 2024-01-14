@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" action="/cs/logout">
+    <input type="submit"  value="logout"/>
+</form>
+
+<form method="get" action="/cs/register">
+    <input type="submit"  value="문의하기"/>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Answer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="inquiry : ${inquiryList}">
+        <td>
+            <a th:href="@{/cs/inquiry/{inquiryId}(inquiryId=${inquiry.id})}" th:text="${inquiry.title}"></a>
+        </td>
+        <td th:text="${inquiry.categorize.getName()}"></td>
+        <td th:text="${inquiry.date}"></td>
+        <td th:text="${inquiry.answerCheck}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

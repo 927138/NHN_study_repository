@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function nextMethod(action, method) {
+            const form = document.getElementById("forms");
+            form.action = action;
+            form.method = method;
+            form.submit();
+        }
+    </script>
+
+</head>
+<body>
+
+<form id="forms" method="post" action="/cs/inquiry" enctype="multipart/form-data">
+    <label>제목 <input type="text" name="title"></label>
+    <label>category
+        <select name="categorize">
+            <option th:each="category : ${T(com.nhnacademy.springmvc.domain.Category).values()}"
+                    th:value="${category}" th:text="${category}"></option>
+        </select>
+    </label><br/>
+    <input type="file" multiple="multiple" name="images"/><br/>
+
+    content <br/>
+    <textarea name="content" rows="10" cols="80"></textarea><br/>
+    <input type="button" value="확인" onclick="nextMethod('/cs/register', 'POST')"/>
+    <input type="submit" value="취소" />
+</form>
+
+
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.nhnacademy.springmvc.repository;
 
 import com.nhnacademy.springmvc.domain.Customer;
+import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.CustomerAlreadyExistsException;
 import com.nhnacademy.springmvc.exception.CustomerNotFoundException;
 import java.util.HashMap;
@@ -32,6 +33,19 @@ public class CustomerRepositoryImp implements CustomerRepository{
      @Override
      public Customer addCustomer(String id, String password) {
           return addCustomer(id, password, "unknown");
+     }
+
+     @Override
+     public Customer adminCreate(String id, String password, String name) {
+          if(exists(id))
+               throw new CustomerAlreadyExistsException();
+
+          Customer admin = Customer.createUser(id);
+          admin.setPassword(password);
+          admin.setName(name);
+          admin.setRole(Role.ADMIN);
+          repository.put(id, admin);
+          return admin;
      }
 
      @Override

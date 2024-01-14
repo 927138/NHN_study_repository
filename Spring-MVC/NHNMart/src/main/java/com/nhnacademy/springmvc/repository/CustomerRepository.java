@@ -9,4 +9,5 @@ public interface CustomerRepository {
      Customer addCustomer(String id, String password);
      Customer addCustomer(String id, String password, String name);
      void modifyCustomer(Customer customer);
+     Customer adminCreate(String id, String password, String name);
 }

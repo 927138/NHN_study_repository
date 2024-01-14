@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function nextMethod() {
+        const inquiryId = document.getElementById("inquiryId").value;
+        const url = '/cs/admin/' + inquiryId;
+        const form = document.getElementById("forms");
+        form.action = url;
+        form.method = 'POST';
+        form.submit();
+    }
+</script>
+
+
+<label>Title: <span th:text="${inquiryDetail.title}"></span></label><br/>
+<label>Content: <span th:text="${inquiryDetail.content}"></span></label><br/>
+<label>Author: <span th:text="${inquiryDetail.author}"></span></label><br/>
+<label>Date: <span th:text="${inquiryDetail.date}"></span></label><br/>
+<label>Category: <span th:text="${inquiryDetail.categorize.getName()}"></span></label><br/>
+<br/>
+
+
+<div th:if="${inquiryDetail.images != null}">
+    <label>Images:</label>
+
+    <span th:each="image : ${inquiryDetail.images}">
+        <a th:text="${image}" th:href="'/cs/admin/image/' + ${image}" target="_blank"></a>
+    </span>
+</div>
+
+
+<br/>
+<form id="forms" method="post" action="/cs/admin">
+    <input type="hidden" id="inquiryId" th:value="${inquiryDetail.id}"/>
+    answerContent <br/>
+    <textarea name="content" rows="10" cols="80"></textarea><br/>
+    <input type="button" value="답변하기" onclick="nextMethod()"/>
+    <input type="submit" value="취소"/>
+</form>
+
+</body>
+</html>

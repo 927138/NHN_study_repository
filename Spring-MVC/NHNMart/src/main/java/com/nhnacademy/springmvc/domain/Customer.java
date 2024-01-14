@@ -8,8 +8,10 @@ import lombok.Getter;
 public class Customer {
 
      private final String id;
-     String password;
+     private String password;
      private String name;
+     private Role role;
+
 
      public static Customer createUser(String id){
           return new Customer(id);
@@ -17,6 +19,7 @@ public class Customer {
 
      private Customer(String id){
           this.id = id;
+          this.role = Role.USER;
      }
 
      public void setPassword(String password) {
@@ -25,5 +28,9 @@ public class Customer {
 
      public void setName(String name) {
           this.name = name;
+     }
+
+     public void setRole(Role role) {
+          this.role = role;
      }
 }

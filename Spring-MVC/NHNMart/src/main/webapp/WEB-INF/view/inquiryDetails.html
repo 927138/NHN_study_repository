@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>cateogry</label>
+<script>
+    function nextMethod(action, method) {
+        const form = document.getElementById("forms");
+        form.action = action;
+        form.method = method;
+        form.submit();
+    }
+</script>
+<div>
+    <form id="forms" method="get" action="/cs/inquiry">
+        <input type="submit" value="Home" />
+    </form>
+    <form method="get" action="/cs/logout">
+        <input type="submit"  value="logout"/>
+    </form>
+</div>
+
+
+<label>Title: <span th:text="${inquiryDetail.title}"></span></label><br/>
+<label>Content: <span th:text="${inquiryDetail.content}"></span></label><br/>
+<label>Author: <span th:text="${inquiryDetail.author}"></span></label><br/>
+<label>Date: <span th:text="${inquiryDetail.date}"></span></label><br/>
+<label>Category: <span th:text="${inquiryDetail.categorize.getName()}"></span></label><br/>
+
+<label th:if="${inquiryDetail.answerCheck}">
+    answerContent: <span th:text="${inquiryDetail.answer.answerContent}"></span> <br/>
+    answerTime: <span th:text="${inquiryDetail.answer.answerTime}"></span><br/>
+    answerCsManager: <span th:text="${inquiryDetail.answer.answerCsManager}"></span>
+</label>
+
+</body>
+</html>
