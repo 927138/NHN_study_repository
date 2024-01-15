@@ -4,11 +4,18 @@ import com.nhnacademy.springmvc.domain.Answer;
 import com.nhnacademy.springmvc.domain.AnswerRequest;
 import com.nhnacademy.springmvc.domain.Inquiry;
 import com.nhnacademy.springmvc.repository.InquiryRepository;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -41,10 +48,30 @@ public class AdminAnswerController {
      }
 
      @GetMapping("admin/image/{img}")
-     public void getAdminImage(@PathVariable("img") String imagePath){
-          System.out.println(imagePath);
+     public void getAdminImage(@PathVariable("img") String imagePath) throws UnsupportedEncodingException {
+          String imageName = imagePath;
+          String encodedImageName = URLEncoder.encode(imageName, "UTF-8");
+
+          System.out.println(encodedImageName);
      }
 
+     public ResponseEntity<Resource> display(@RequestParam("img") String imagePath)
+             throws UnsupportedEncodingException {
+          String path = InquiryRegisterController.UPLOAD_DIR;
+          String filename = URLEncoder.encode(imagePath, "UTF-8");
+          Resource resource = new FileSystemResource(path + filename);
+          if(!resource.exists())
+               return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+          HttpHeaders header = new HttpHeaders();
+          Path filePath = null;
+          try{
+               filePath = Paths.get(path + filename);
+               header.add("Content-type", Files.probeContentType(filePath));
+          }catch(IOException e) {
+               e.printStackTrace();
+          }
+          return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
+     }
 
      @GetMapping("/admin/{inquiryId}")
      public String getAdminInquiryChoice(@PathVariable("inquiryId") long id, Model model){

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Title</title>
 </head>
 <body>
@@ -26,10 +26,13 @@
 
 
 <div th:if="${inquiryDetail.images != null}">
-    <label>Images:</label>
+    <label>Images </label>
 
     <span th:each="image : ${inquiryDetail.images}">
-        <a th:text="${image}" th:href="'/cs/admin/image/' + ${image}" target="_blank"></a>
+        <ul>
+            <li><a th:text="${image}" th:href="'/cs/admin/image/' + ${image}" target="_blank"></a></li>
+        </ul>
+
     </span>
 </div>
 

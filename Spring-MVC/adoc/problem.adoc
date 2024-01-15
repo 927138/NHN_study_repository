@@ -1,0 +1,5 @@
+= problem
+
+== @ModeAttribute
+- Method or Param 어디서든 선언 시 Model에 올라감.
+- 착각하지 말 것

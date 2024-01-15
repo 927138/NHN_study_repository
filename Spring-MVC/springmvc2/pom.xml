@@ -16,6 +16,7 @@
 
 <!--    spring-framework-bom 추가 -->
     <dependencyManagement>
+
         <dependencies>
             <dependency>
                 <groupId>org.springframework</groupId>

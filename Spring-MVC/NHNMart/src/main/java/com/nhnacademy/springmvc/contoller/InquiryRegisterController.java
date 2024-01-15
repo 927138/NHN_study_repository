@@ -41,7 +41,7 @@ public class InquiryRegisterController {
      private final InquiryRepository inquiryRepository;
      private final CustomerRepository customerRepository;
 
-     private final String UPLOAD_DIR = "/Users/user/Desktop/uploadFile/";
+     final static String UPLOAD_DIR = "/Users/user/Desktop/uploadFile/";
 
      @GetMapping("/register")
      public String getInquiryRegisterForm() {
