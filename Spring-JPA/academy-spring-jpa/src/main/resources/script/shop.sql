@@ -5,6 +5,8 @@ CREATE TABLE if not exists Categories (
                             PRIMARY KEY (category_id)
 );
 
+merge into Categories key (category_id) values (1, 'ssdfsdf');
+
 CREATE TABLE if not exists Products (
                           prod_id BIGINT AUTO_INCREMENT,
                           category_id BIGINT,
@@ -60,7 +62,7 @@ CREATE TABLE if not exists OrderDetails (
                               FOREIGN KEY (prod_id) REFERENCES Products(prod_id)
 );
 
-CREATE TABLE ShoppingCart (
+CREATE TABLE if not exists ShoppingCart (
                               record_id BIGINT AUTO_INCREMENT,
                               cart_id NVARCHAR(150),
                               quantity INT,

@@ -1,11 +1,15 @@
 package com.nhnacademy.springjpa.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +21,9 @@ public class Product {
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long productId;
 
-     @Column(name = "category_id")
-     private Long categoryId;
+     @OneToMany
+     @JoinColumn(name = "category_id")
+     private List<Category> categoryId;
 
      @Column(name = "model_number")
      private String modelNumber;

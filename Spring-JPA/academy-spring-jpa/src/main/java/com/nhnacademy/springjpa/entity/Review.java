@@ -1,10 +1,14 @@
 package com.nhnacademy.springjpa.entity;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,11 +20,13 @@ public class Review {
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long reviewId;
 
-     @Column(name = "prod_id")
-     private Long productId;
+     @JoinColumn(name = "cus_id")
+     @ManyToOne
+     private Customer customerId;
 
-     @Column(name = "cus_id")
-     private Long customerId;
+     @JoinColumn(name = "prod_id")
+     @OneToMany
+     private List<Product> productId;
 
      private int rating;
      private String comments;
