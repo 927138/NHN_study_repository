@@ -1,70 +1,52 @@
-CREATE TABLE Categories (
-                            CategoryID INT AUTO_INCREMENT PRIMARY KEY,
-                            CategoryName VARCHAR(50)
+CREATE TABLE if not exists Categories (
+                            category_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                            category_name VARCHAR(50)
 );
 
-CREATE TABLE Products (
-                          ProductID INT AUTO_INCREMENT PRIMARY KEY,
-                          CategoryID INT,
-                          ModelNumber NVARCHAR(10),
-                          ModelName NVARCHAR(120),
-                          ProductImage NVARCHAR(30),
-                          UnitCost DECIMAL(15),
-                          Description TEXT,
-                          CategoryReference INT, -- Foreign key reference to Categories(CategoryID)
+CREATE TABLE if not exists Products (
+                          prod_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                          category_id BIGINT,
+                          model_number NVARCHAR(10),
+                          model_name NVARCHAR(120),
+                          prod_image NVARCHAR(30),
+                          unit_cost DECIMAL(15),
+                          description text
 
-                          CONSTRAINT fk_Products_Categories FOREIGN KEY (CategoryReference) REFERENCES Categories(CategoryID)
 );
 
-CREATE TABLE Customers (
-                           CustomerID INT AUTO_INCREMENT PRIMARY KEY,
-                           Name VARCHAR(10),
-                           EmailAddress VARCHAR(100) UNIQUE,
-                           Password VARCHAR(12)
+CREATE TABLE if not exists Customers (
+                           cus_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                           name VARCHAR(10),
+                           email_address VARCHAR(100) UNIQUE,
+                           password VARCHAR(12)
 );
 
-CREATE TABLE Reviews (
-                         ReviewID INT AUTO_INCREMENT PRIMARY KEY,
-                         ProductID INT,
-                         CustomerID INT,
-                         Rating INT,
-                         Comments TEXT,
-                         ProductReference INT, -- Foreign key reference to Products(ProductID)
-                         CustomerReference INT, -- Foreign key reference to Customers(CustomerID)
-
-                         CONSTRAINT fk_Review_Products FOREIGN KEY (ProductReference) REFERENCES Products(ProductID),
-                         CONSTRAINT fk_Review_Customer FOREIGN KEY (CustomerReference) REFERENCES Customers(CustomerID)
+CREATE TABLE if not exists Reviews (
+                         review_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                         prod_id BIGINT,
+                         cus_id BIGINT,
+                         rating INT,
+                         comments TEXT,
 );
 
-CREATE TABLE Orders (
-                        OrderID INT AUTO_INCREMENT PRIMARY KEY,
-                        CustomerID INT,
-                        OrderDate TIMESTAMP,
-                        ShipDate TIMESTAMP,
-                        CustomerReference INT, -- Foreign key reference to Customers(CustomerID)
-
-                        CONSTRAINT fk_Orders_CustomerID FOREIGN KEY (CustomerReference) REFERENCES Customers(CustomerID)
+CREATE TABLE if not exists Orders (
+                        order_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        cus_id BIGINT,
+                        order_date TIMESTAMP,
+                        ship_date TIMESTAMP,
 );
 
-CREATE TABLE OrderDetails (
-                              OrderID INT,
-                              ProductID INT,
-                              Quantity INT,
-                              UnitCost DECIMAL(15),
-                              OrderReference INT, -- Foreign key reference to Orders(OrderID)
-                              ProductReference INT, -- Foreign key reference to Products(ProductID)
-
-                              CONSTRAINT fk_OrderDetails_Orders FOREIGN KEY (OrderReference) REFERENCES Orders(OrderID),
-                              CONSTRAINT fk_OrderDetails_Products FOREIGN KEY (ProductReference) REFERENCES Products(ProductID)
+CREATE TABLE if not exists OrderDetails (
+                              order_id BIGINT,
+                              prod_id BIGINT,
+                              quantity INT,
+                              unit_cost DECIMAL(15),
 );
 
 CREATE TABLE ShoppingCart (
-                              RecordID INT AUTO_INCREMENT PRIMARY KEY,
-                              CartID NVARCHAR(150),
-                              Quantity INT,
-                              ProductID INT,
-                              DateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                              ProductReference INT, -- Foreign key reference to Products(ProductID)
-
-                              CONSTRAINT fk_cart_ProductID FOREIGN KEY (ProductReference) REFERENCES Products(ProductID)
+                              record_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                              cart_id NVARCHAR(150),
+                              quantity INT,
+                              prod_id BIGINT,
+                              date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
