@@ -26,21 +26,21 @@ CREATE TABLE if not exists Reviews (
                          prod_id BIGINT,
                          cus_id BIGINT,
                          rating INT,
-                         comments TEXT,
+                         comments TEXT
 );
 
 CREATE TABLE if not exists Orders (
                         order_id BIGINT AUTO_INCREMENT PRIMARY KEY,
                         cus_id BIGINT,
                         order_date TIMESTAMP,
-                        ship_date TIMESTAMP,
+                        ship_date TIMESTAMP
 );
 
 CREATE TABLE if not exists OrderDetails (
                               order_id BIGINT,
                               prod_id BIGINT,
                               quantity INT,
-                              unit_cost DECIMAL(15),
+                              unit_cost DECIMAL(15)
 );
 
 CREATE TABLE ShoppingCart (
@@ -48,5 +48,5 @@ CREATE TABLE ShoppingCart (
                               cart_id NVARCHAR(150),
                               quantity INT,
                               prod_id BIGINT,
-                              date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                              date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
