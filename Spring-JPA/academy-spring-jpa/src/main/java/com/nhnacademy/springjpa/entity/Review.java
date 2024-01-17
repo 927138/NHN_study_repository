@@ -10,7 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "Reviews")
 public class Review {
@@ -25,8 +33,8 @@ public class Review {
      private Customer customerId;
 
      @JoinColumn(name = "prod_id")
-     @OneToMany
-     private List<Product> productId;
+     @ManyToOne
+     private Product productId;
 
      private int rating;
      private String comments;

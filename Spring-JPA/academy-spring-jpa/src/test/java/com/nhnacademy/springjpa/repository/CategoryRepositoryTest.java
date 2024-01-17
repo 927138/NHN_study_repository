@@ -32,6 +32,7 @@ class CategoryRepositoryTest {
 
      @Test
      void test(){
+
           Class<?> clazz = Arrays.stream(categoryRepository.getClass().getInterfaces())
                   .filter(InterFace -> InterFace.isAssignableFrom(CategoryRepository.class))
                   .findFirst()

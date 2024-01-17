@@ -5,7 +5,7 @@ CREATE TABLE if not exists Categories (
                             PRIMARY KEY (category_id)
 );
 
-merge into Categories key (category_id) values (1, 'ssdfsdf');
+merge into Categories key (category_id) values (1, '상의');
 
 CREATE TABLE if not exists Products (
                           prod_id BIGINT AUTO_INCREMENT,
@@ -28,6 +28,8 @@ CREATE TABLE if not exists Customers (
 
                            PRIMARY KEY (cus_id)
 );
+
+merge into Customers key (cus_id) values (1, 'name1', 'name1@gmil.com', '123');
 
 CREATE TABLE if not exists Reviews (
                          review_id BIGINT AUTO_INCREMENT,
@@ -59,16 +61,5 @@ CREATE TABLE if not exists OrderDetails (
 
                               PRIMARY KEY (order_id, prod_id),
                               FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-                              FOREIGN KEY (prod_id) REFERENCES Products(prod_id)
-);
-
-CREATE TABLE if not exists ShoppingCart (
-                              record_id BIGINT AUTO_INCREMENT,
-                              cart_id NVARCHAR(150),
-                              quantity INT,
-                              prod_id BIGINT,
-                              date_created TIMESTAMP,
-
-                              PRIMARY KEY (record_id),
                               FOREIGN KEY (prod_id) REFERENCES Products(prod_id)
 );

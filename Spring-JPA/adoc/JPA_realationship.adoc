@@ -1,0 +1,24 @@
+= 연관 관계
+
+== JPA association //연관 관계
+- Database table간의 관계를 Entity class의 속성으로 모델링
+-
+
+
+== multiplicity
+- @OneToOne
+- @OneToMany
+- @ManyToOne
+- // @ManyToMany == 사용 x > 복잡함, many yo many 디자인이 어려움. 제대로 찾아보기
+- attribute
+* fetch : JPA가 하나의 Entity를 가져올때 연관관계에 있는 Entity를 어떻게 가져올 것인지에 대한 설명 +
+1. FetchType.EAGER (즉시 로딩) :
+2. FetchType.LAZY (지연 로딩) : 참조가 일어날 때 로딩 +
+
+ fetch default
+ *-ToOne (@OneToOne, @ManyToOne ) : FetchType.EAGER
+ *-ToMany (@OneToMany, @ManyToMany) : FetchType.LAZY
+
+* cascade : 필요한 부분에 한정된 곳에서
+
+

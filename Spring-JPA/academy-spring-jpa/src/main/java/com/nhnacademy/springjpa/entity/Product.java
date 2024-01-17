@@ -11,7 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "Products")
 public class Product {
@@ -21,9 +29,9 @@ public class Product {
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long productId;
 
-     @OneToMany
+     @ManyToOne
      @JoinColumn(name = "category_id")
-     private List<Category> categoryId;
+     private Category categoryId;
 
      @Column(name = "model_number")
      private String modelNumber;
