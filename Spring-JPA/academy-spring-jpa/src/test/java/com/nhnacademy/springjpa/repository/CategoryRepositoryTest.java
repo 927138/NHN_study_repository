@@ -6,8 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.nhnacademy.springjpa.Pick;
 import com.nhnacademy.springjpa.config.RootConfig;
 import com.nhnacademy.springjpa.config.WebConfig;
+import com.nhnacademy.springjpa.entity.Category;
+import com.nhnacademy.springjpa.entity.Product;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +33,6 @@ class CategoryRepositoryTest {
      @Autowired
      private CategoryRepository categoryRepository;
 
-
      @Test
      void test(){
 
@@ -47,5 +50,16 @@ class CategoryRepositoryTest {
                           .orElse(null);
 
           assertThat(pickMethod).isNotNull();
+     }
+
+     @Test
+     void findCategory(){
+          assertThat(categoryRepository.findByCategoryId(1L)).isNotNull();
+
+          int cnt = categoryRepository.findAllBy().size();
+          assertThat(categoryRepository.findByCategoryId( cnt + 1L) ).isNull();
+
+          categoryRepository.flush();
+
      }
 }

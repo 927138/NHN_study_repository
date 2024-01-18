@@ -6,6 +6,9 @@ CREATE TABLE if not exists Categories (
 );
 
 merge into Categories key (category_id) values (1, '상의');
+merge into Categories key (category_id) values (2, '하의');
+merge into Categories key (category_id) values (3, '신발');
+merge into Categories key (category_id) values (4, '모자');
 
 CREATE TABLE if not exists Products (
                           prod_id BIGINT AUTO_INCREMENT,
@@ -19,6 +22,16 @@ CREATE TABLE if not exists Products (
                           PRIMARY KEY (prod_id),
                           FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
+
+merge into Products key (prod_id) values ( 1, 1, 'number1', 'model_name1', 'image', 123.121212, 'product1' );
+merge into Products key (prod_id) values ( 2, 1, 'number2', 'model_name2', 'image', 123.121212, 'product2' );
+merge into Products key (prod_id) values ( 3, 1, 'number3', 'model_name3', 'image', 123.121212, 'product3' );
+merge into Products key (prod_id) values ( 4, 1, 'number4', 'model_name4', 'image', 123.121212, 'product4' );
+merge into Products key (prod_id) values ( 5, 1, 'number5', 'model_name5', 'image', 123.121212, 'product5' );
+merge into Products key (prod_id) values ( 6, 1, 'number6', 'model_name6', 'image', 123.121212, 'product6' );
+merge into Products key (prod_id) values ( 7, 1, 'number7', 'model_name7', 'image', 123.121212, 'product7' );
+merge into Products key (prod_id) values ( 8, 1, 'number8', 'model_name8', 'image', 123.121212, 'product8' );
+merge into Products key (prod_id) values ( 9, 1, 'number9', 'model_name9', 'image', 123.121212, 'product9' );
 
 CREATE TABLE if not exists Customers (
                            cus_id BIGINT AUTO_INCREMENT,
