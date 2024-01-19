@@ -9,10 +9,8 @@ import org.springframework.context.MessageSourceAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,6 +19,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @EnableWebMvc
+@EnableSpringDataWebSupport
 @Configuration
 @ComponentScan(basePackageClasses = ControllerBase.class)
 public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, MessageSourceAware {
@@ -33,6 +32,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
 
           // Thymeleaf check > x
           // JPA connect check > x
+          registry.addViewController("/").setViewName("home");
      }
 
      @Override
@@ -45,13 +45,13 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
           this.applicationContext = applicationContext;
      }
 
-     @Bean
-     public MultipartResolver multipartResolver() {
-          CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-          multipartResolver.setMaxUploadSize(-1);
-
-          return multipartResolver;
-     }
+//     @Bean // file upload
+//     public MultipartResolver multipartResolver() {
+//          CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//          multipartResolver.setMaxUploadSize(-1);
+//
+//          return multipartResolver;
+//     }
 
      @Override
      public void setMessageSource(MessageSource messageSource) {

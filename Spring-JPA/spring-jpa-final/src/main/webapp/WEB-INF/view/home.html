@@ -6,6 +6,12 @@
 </head>
 <body>
 
-check;
+
+
+<span th:each="category : ${list}">
+            <span th:text="${category.id}"></span>
+    <span th:text="${category.name}"></span>
+
+    </span>
 </body>
 </html>
