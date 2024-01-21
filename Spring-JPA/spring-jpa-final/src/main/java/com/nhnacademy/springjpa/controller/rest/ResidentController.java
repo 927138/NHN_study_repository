@@ -1,4 +1,4 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.rest;
 
 import com.nhnacademy.springjpa.domain.ResidentRegisterRequest;
 import com.nhnacademy.springjpa.domain.ResidentUpdateDeathRequest;
@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class ResidentRestController {
+public class ResidentController {
 
      private final ResidentService residentService;
 

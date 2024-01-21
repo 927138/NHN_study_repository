@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
 
      @Override
      public void addViewControllers(ViewControllerRegistry registry) {
-          registry.addViewController("/").setViewName("home");
+          registry.addViewController("/").setViewName("redirect:/home");
      }
 
      @Override

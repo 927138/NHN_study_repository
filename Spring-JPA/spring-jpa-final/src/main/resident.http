@@ -2,7 +2,7 @@ POST  http://localhost:8080/residents
 Content-type: application/json
 
 {
-  "residentSerialNumber": 13,
+  "residentSerialNumber": 123,
   "name": "father",
   "residentRegistrationNumber" : "123456-1234567",
   "genderCode": "male",
@@ -15,7 +15,8 @@ Content-type: application/json
 }
 
 ###
-PUT http://localhost:8080/residents/12
+
+PUT http://localhost:8080/residents/13
 Content-Type: application/json
 
 {
@@ -24,25 +25,3 @@ Content-Type: application/json
   "deathPlaceAddress": "boseong"
 }
 
-###
-POST localhost:8080/residents/12/relationship
-content-Type: application/json
-
-{
-    "familySerialNumber": 123,
-    "relationShip": "good"
-}
-
-###
-PUT localhost:8080/residents/12/relationship/123
-content-Type: application/json
-
-{
-  "relationShip": "성공?"
-}
-
-###
-
-DELETE localhost:8080/residents/12/relationship/123
-
-###

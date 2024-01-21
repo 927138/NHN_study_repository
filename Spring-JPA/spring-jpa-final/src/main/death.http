@@ -1,0 +1,36 @@
+POST localhost:8080/residents/13/birth
+content-Type: application/json
+
+{
+  "reportResidentSerialNumber": 2,
+  "birthDeathTypeCode": "사망",
+
+  "birthDeathReportDate": "1999-11-27T00:00:00Z",
+  "birthReportQualificationsCode": "아들",
+  "deathReportQualificationsCode" : null,
+  "emailAddress": null,
+  "phoneNumber": "010-9342-2711"
+}
+
+###
+
+PUT localhost:8080/residents/13/birth/2
+content-Type: application/json
+
+{
+  "birthDeathTypeCode": "사망",
+  "birthDeathReportDate": "1999-11-27T00:00:00Z",
+  "birthReportQualificationsCode": "딸",
+  "deathReportQualificationsCode" : null,
+  "emailAddress": "test@gamil.com",
+  "phoneNumber": "010-9342-2711"
+}
+
+###
+
+DELETE localhost:8080/residents/13/birth/2
+Content-Type: application/json
+
+{
+  "birthDeathTypeCode": "사망"
+}

@@ -6,20 +6,28 @@
 </head>
 <body>
 
+<table>
 
+    <tbody>
 
-<span th:each="category : ${list}">
-            <span th:text="${category.residentSerialNumber}"></span>
-    <span th:text="${category.name}"></span>
-        <br/>
-    </span>
+    <tbody>
+    <tr th:each="resident : ${residentPages.content}">
 
-<br/>
-<span th:each="tt : ${list2}">
-            <span th:text="${tt.familyPK.familyResidentSerialNumber}"></span>
-    <span th:text="${tt.baseResidentSerialNumber.residentSerialNumber}"></span>
-        <br/>
-    </span>
+        <td th:text="${resident.name}"></td>
+        <td th:each="issue : ${resident.certificateIssues}">
+            <a th:text="${issue.certificateTypeCode}" th:href="@{'/report/' + ${issue.certificateConfirmationNumber}}"></a>
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+<div th:with="start=1, finish=${residentTotalPage}">
+    <div th:each="index : ${#numbers.sequence(start, finish)}">
+        <a th:href="@{/home(page=${index - 1})}" th:text="${index}"></a>
+    </div>
+</div>
 
 </body>
 </html>

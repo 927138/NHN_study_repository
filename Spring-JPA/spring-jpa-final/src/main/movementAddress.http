@@ -1,0 +1,14 @@
+POST localhost:8080/household/2/movement
+
+###
+
+PUT localhost:8080/household/2/movement/1999-11-27
+content-Type: application/json
+
+{
+  "houseMovementAddress" : "transferAddress"
+}
+###
+
+DELETE  localhost:8080/household/2/movement/1999-11-27
+content-Type: application/json

@@ -1,4 +1,4 @@
-package com.nhnacademy.springjpa.controller;
+package com.nhnacademy.springjpa.controller.rest;
 
 import com.nhnacademy.springjpa.domain.FamilyRelationShipModifyRequest;
 import com.nhnacademy.springjpa.domain.FamilyRelationShipRegisterRequest;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequiredArgsConstructor
-public class FamilyRelationRestController {
+public class FamilyRelationController {
 
      private final FamilyRelationShipService familyRelationShipService;
 

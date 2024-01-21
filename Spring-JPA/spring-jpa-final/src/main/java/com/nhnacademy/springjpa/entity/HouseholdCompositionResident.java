@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Setter @Getter
+@Setter
+@Getter
 @Table(name = "household_composition_resident")
 public class HouseholdCompositionResident {
 
@@ -50,10 +51,14 @@ public class HouseholdCompositionResident {
      @NoArgsConstructor
      @AllArgsConstructor
      @EqualsAndHashCode
-     @Setter @Getter
+     @Setter
+     @Getter
      @Embeddable
      public static class CompositionResidentPk implements Serializable {
+          @Column(name = "household_serial_number")
           private Integer householdSerialNumber;
+
+          @Column(name = "resident_serial_number")
           private Integer residentSerialNumber;
 
      }

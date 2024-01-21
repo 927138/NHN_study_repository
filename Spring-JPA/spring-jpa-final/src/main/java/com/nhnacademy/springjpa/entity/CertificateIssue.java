@@ -3,9 +3,11 @@ package com.nhnacademy.springjpa.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -20,30 +22,26 @@ import lombok.Setter;
 
 @Entity
 @Setter @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "certificate_issue")
 public class CertificateIssue {
 
-     @EmbeddedId
-     private CertificatePk certificatePk;
+     @Id
+     @Column(name = "certificate_confirmation_number")
+     private Long certificateConfirmationNumber;
 
      @Temporal(TemporalType.TIMESTAMP)
-     private Date certificate_issue_date;
+     @Column(name = "certificate_issue_date")
+     private Date certificateIssueDate;
 
-     @MapsId("resident_serial_number")
      @ManyToOne
      @JoinColumn(name = "resident_serial_number")
-     private Resident resident_serial_number;
+     private Resident residentSerialNumber;
 
-     private String certificate_type_code;
+     @Column(name = "certificate_type_code")
+     private String certificateTypeCode;
 
 
-     @NoArgsConstructor
-     @AllArgsConstructor
-     @EqualsAndHashCode
-     @Setter @Getter
-     @Embeddable
-     public static class CertificatePk implements Serializable {
-          Long certificate_confirmation_number;
-          Integer resident_serial_number;
-     }
+
 }

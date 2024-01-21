@@ -1,0 +1,19 @@
+POST localhost:8080/residents/13/relationship
+content-Type: application/json
+
+{
+  "familySerialNumber": 123,
+  "relationShip": "good"
+}
+
+###
+PUT localhost:8080/residents/13/relationship/123
+content-Type: application/json
+
+{
+  "relationShip": "성공?"
+}
+
+###
+
+DELETE localhost:8080/residents/13/relationship/123
