@@ -28,10 +28,6 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
 
      @Override
      public void addViewControllers(ViewControllerRegistry registry) {
-          // TODO : 첫화면 설정.
-
-          // Thymeleaf check > x
-          // JPA connect check > x
           registry.addViewController("/").setViewName("home");
      }
 

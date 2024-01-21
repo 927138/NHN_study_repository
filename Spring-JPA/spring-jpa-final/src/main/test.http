@@ -1,0 +1,48 @@
+POST  http://localhost:8080/residents
+Content-type: application/json
+
+{
+  "residentSerialNumber": 13,
+  "name": "father",
+  "residentRegistrationNumber" : "123456-1234567",
+  "genderCode": "male",
+  "birthDate": "1999-11-27T00:00:00Z",
+  "deathDate": null,
+  "birthPlaceCode": "pc room",
+  "registrationBaseAddress": "boseong",
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+
+###
+PUT http://localhost:8080/residents/12
+Content-Type: application/json
+
+{
+  "deathDate": "1999-11-27T00:00:00Z",
+  "deathPlaceCode": "pc room",
+  "deathPlaceAddress": "boseong"
+}
+
+###
+POST localhost:8080/residents/12/relationship
+content-Type: application/json
+
+{
+    "familySerialNumber": 123,
+    "relationShip": "good"
+}
+
+###
+PUT localhost:8080/residents/12/relationship/123
+content-Type: application/json
+
+{
+  "relationShip": "성공?"
+}
+
+###
+
+DELETE localhost:8080/residents/12/relationship/123
+
+###

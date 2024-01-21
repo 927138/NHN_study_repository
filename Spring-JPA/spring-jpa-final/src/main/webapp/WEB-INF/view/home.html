@@ -9,9 +9,17 @@
 
 
 <span th:each="category : ${list}">
-            <span th:text="${category.id}"></span>
+            <span th:text="${category.residentSerialNumber}"></span>
     <span th:text="${category.name}"></span>
-
+        <br/>
     </span>
+
+<br/>
+<span th:each="tt : ${list2}">
+            <span th:text="${tt.familyPK.familyResidentSerialNumber}"></span>
+    <span th:text="${tt.baseResidentSerialNumber.residentSerialNumber}"></span>
+        <br/>
+    </span>
+
 </body>
 </html>
