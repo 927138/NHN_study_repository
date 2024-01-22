@@ -1,0 +1,30 @@
+POST localhost:8080/students
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name" : "영훈",
+  "email": "dudgns@gmail.com",
+  "score": 50,
+  "comment": "분발하세요"
+}
+
+###
+
+PUT localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "name" : "영훈",
+  "email": "dudgns@gmail.com",
+  "score": 80,
+  "comment": "good"
+}
+
+###
+
+GET localhost:8080/students/1
+
+###
+
+DELETE localhost:8080/students/1
