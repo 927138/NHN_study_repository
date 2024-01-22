@@ -5,6 +5,8 @@ import com.nhnacademy.edu.springboot.practice.entity.Student;
 import java.util.List;
 
 public interface StudentService {
+
+     boolean exists(Long id);
      Student getStudent(Long id);
      Student studentRegister(StudentRequest registerRequest);
      Student studentModify(Long id, StudentRequest modifyRequest);

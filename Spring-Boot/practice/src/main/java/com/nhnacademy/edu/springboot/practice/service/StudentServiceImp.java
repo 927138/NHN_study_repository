@@ -17,6 +17,11 @@ public class StudentServiceImp implements StudentService{
      private final StudentRepository studentRepository;
 
      @Override
+     public boolean exists(Long id) {
+          return studentRepository.existsById(id);
+     }
+
+     @Override
      public Student getStudent(Long id) {
           Optional<Student> studentOptional = studentRepository.findById(id);
 

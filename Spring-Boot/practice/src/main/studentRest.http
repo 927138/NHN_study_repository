@@ -26,5 +26,3 @@ Content-Type: application/json
 GET localhost:8080/students/1
 
 ###
-
-DELETE localhost:8080/students/1

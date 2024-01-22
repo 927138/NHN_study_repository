@@ -23,4 +23,11 @@ public class Student {
      private String email;
      private Integer score;
      private String comment;
+
+     public Student(String name, String email, Integer score, String comment) {
+          this.name = name;
+          this.email = email;
+          this.score = score;
+          this.comment = comment;
+     }
 }

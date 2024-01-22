@@ -35,10 +35,4 @@ public class RestStudentController {
           return ResponseEntity.ok(studentService.studentModify(id, modifyRequest));
      }
 
-     @DeleteMapping("/students/{studentId}")
-     public ResponseEntity<Student> deleteStudent(@PathVariable("studentId") Long id){
-          studentService.studentDelete(id);
-          return ResponseEntity.ok().build();
-     }
-
 }
