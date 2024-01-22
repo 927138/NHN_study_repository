@@ -9,4 +9,6 @@ public interface UserService {
      User userRegister(UserRegisterRequest registerRequest);
      User userPasswordModify(String id, UserPasswordModifyRequest modifyRequest);
      void userDelete(String id);
+     boolean exists(String id);
+     boolean matches(String id, String password);
 }

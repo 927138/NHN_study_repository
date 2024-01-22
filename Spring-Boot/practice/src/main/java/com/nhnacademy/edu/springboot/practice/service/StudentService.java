@@ -9,4 +9,5 @@ public interface StudentService {
      Student studentRegister(StudentRegisterRequest registerRequest);
      Student studentModify(Long id, StudentModifyRequest modifyRequest);
      void studentDelete(Long id);
+
 }

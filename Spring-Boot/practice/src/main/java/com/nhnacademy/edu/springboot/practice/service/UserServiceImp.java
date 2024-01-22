@@ -62,4 +62,18 @@ public class UserServiceImp implements UserService{
      public void userDelete(String id) {
           userRepository.deleteById(id);
      }
+
+     @Override
+     public boolean exists(String id) {
+          return userRepository.findById(id).isPresent();
+     }
+
+     @Override
+     public boolean matches(String id, String password) {
+          User user = getUser(id);
+
+          if(user.getPassword().equals(password))
+               return true;
+          return false;
+     }
 }
