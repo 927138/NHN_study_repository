@@ -1,13 +1,14 @@
 package com.nhnacademy.edu.springboot.practice.service;
 
-import com.nhnacademy.edu.springboot.practice.domain.StudentModifyRequest;
-import com.nhnacademy.edu.springboot.practice.domain.StudentRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.domain.StudentRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
+import java.util.List;
 
 public interface StudentService {
      Student getStudent(Long id);
-     Student studentRegister(StudentRegisterRequest registerRequest);
-     Student studentModify(Long id, StudentModifyRequest modifyRequest);
+     Student studentRegister(StudentRequest registerRequest);
+     Student studentModify(Long id, StudentRequest modifyRequest);
      void studentDelete(Long id);
 
+     List<Student> getStudents();
 }

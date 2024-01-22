@@ -1,15 +1,14 @@
 package com.nhnacademy.edu.springboot.practice.service;
 
-import com.nhnacademy.edu.springboot.practice.domain.StudentModifyRequest;
-import com.nhnacademy.edu.springboot.practice.domain.StudentRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.domain.StudentRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.exception.StudentAlreadyExistsException;
 import com.nhnacademy.edu.springboot.practice.exception.StudentNotFoundException;
 import com.nhnacademy.edu.springboot.practice.repository.StudentRepository;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -29,13 +28,14 @@ public class StudentServiceImp implements StudentService{
      }
 
      @Override
-     public Student studentRegister(StudentRegisterRequest registerRequest) {
-          boolean present = studentRepository.findById(registerRequest.getId()).isPresent();
+     public Student studentRegister(StudentRequest registerRequest) {
+          Long id = studentRepository.findTopByIdOrderByIdDesc()+1L;
+          boolean present = studentRepository.findById(id).isPresent();
           if(present)
                throw new StudentAlreadyExistsException();
 
           Student student = new Student();
-          student.setId(registerRequest.getId());
+          student.setId(id);
           student.setName(registerRequest.getName());
           student.setScore(registerRequest.getScore());
           student.setEmail(registerRequest.getEmail());
@@ -45,7 +45,7 @@ public class StudentServiceImp implements StudentService{
      }
 
      @Override
-     public Student studentModify(Long id, StudentModifyRequest modifyRequest) {
+     public Student studentModify(Long id, StudentRequest modifyRequest) {
           Optional<Student> studentOptional = studentRepository.findById(id);
           boolean present = studentOptional.isPresent();
           if(!present)
@@ -65,5 +65,8 @@ public class StudentServiceImp implements StudentService{
           studentRepository.deleteById(id);
      }
 
-
+     @Override
+     public List<Student> getStudents() {
+          return studentRepository.findAll();
+     }
 }

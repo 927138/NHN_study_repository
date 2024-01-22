@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through the list of students -->
+    <tr th:each="student : ${studentList}">
+        <!-- Display id and name -->
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <!-- Create a link with id as a path variable -->
+        <td>
+            <a th:href="@{'/student/' + ${student.id}}">Details</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

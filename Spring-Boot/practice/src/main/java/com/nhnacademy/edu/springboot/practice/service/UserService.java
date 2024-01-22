@@ -2,7 +2,9 @@ package com.nhnacademy.edu.springboot.practice.service;
 
 import com.nhnacademy.edu.springboot.practice.domain.UserPasswordModifyRequest;
 import com.nhnacademy.edu.springboot.practice.domain.UserRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.entity.User;
+import java.util.List;
 
 public interface UserService {
      User getUser(String id);

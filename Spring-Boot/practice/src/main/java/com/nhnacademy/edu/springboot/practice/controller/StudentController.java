@@ -1,9 +1,8 @@
 package com.nhnacademy.edu.springboot.practice.controller;
 
-import com.nhnacademy.edu.springboot.practice.domain.StudentModifyRequest;
+import com.nhnacademy.edu.springboot.practice.domain.StudentRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.exception.StudentNotFoundException;
-import com.nhnacademy.edu.springboot.practice.repository.StudentRepository;
 import com.nhnacademy.edu.springboot.practice.service.StudentService;
 import java.util.Objects;
 import javax.validation.Valid;
@@ -41,7 +40,7 @@ public class StudentController {
      @GetMapping("/{studentId}")
      public String getStudentInfo(@ModelAttribute Student student, Model model){
           model.addAttribute("student", student);
-          return "studentView";
+          return "home";
      }
 
      @GetMapping(value = "/{studentId}", params = "hideScore")
@@ -50,7 +49,7 @@ public class StudentController {
           model.addAttribute("student", student);
           model.addAttribute("hideScore", hide);
 
-          return "studentView";
+          return "home";
      }
 
      @GetMapping("/{studentId}/modify")
@@ -63,14 +62,14 @@ public class StudentController {
 
      @PostMapping("{studentId}/modify")
      public ModelAndView postStudentModify(@ModelAttribute Student student,
-                                           @Valid @ModelAttribute StudentModifyRequest studentModifyRequest) {
+                                           @Valid @ModelAttribute StudentRequest studentRequest) {
 
-          student.setName(studentModifyRequest.getName());
-          student.setScore(studentModifyRequest.getScore());
-          student.setComment(studentModifyRequest.getComment());
-          student.setEmail(studentModifyRequest.getEmail());
+          student.setName(studentRequest.getName());
+          student.setScore(studentRequest.getScore());
+          student.setComment(studentRequest.getComment());
+          student.setEmail(studentRequest.getEmail());
 
-          ModelAndView mav = new ModelAndView("studentView");
+          ModelAndView mav = new ModelAndView("home");
           mav.addObject("student", student);
           return mav;
      }

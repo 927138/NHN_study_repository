@@ -2,10 +2,13 @@ package com.nhnacademy.edu.springboot.practice.service;
 
 import com.nhnacademy.edu.springboot.practice.domain.UserPasswordModifyRequest;
 import com.nhnacademy.edu.springboot.practice.domain.UserRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.entity.User;
 import com.nhnacademy.edu.springboot.practice.exception.UserAlreadyExistsException;
 import com.nhnacademy.edu.springboot.practice.exception.UserNotFoundException;
+import com.nhnacademy.edu.springboot.practice.repository.StudentRepository;
 import com.nhnacademy.edu.springboot.practice.repository.UserRepository;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.persistence.Table;
@@ -18,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImp implements UserService{
 
      private final UserRepository userRepository;
+     private final StudentRepository studentRepository;
 
      @Override
      public User getUser(String id) {
@@ -76,4 +80,5 @@ public class UserServiceImp implements UserService{
                return true;
           return false;
      }
+
 }

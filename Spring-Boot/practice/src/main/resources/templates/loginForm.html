@@ -8,7 +8,6 @@
 
 <!-- user가 null인 경우 -->
 <div th:if="${users == null}">
-  <span th:value="${users}"></span>
   <form method="post" action="/login">
     ID: <input type="text" name="id" /><br />
     PWD: <input type="password" name="password" /><br />
@@ -19,15 +18,16 @@
 
 <!-- user가 null이 아닌 경우 -->
 <div th:if="${users != null}">
-  <p>사용자 id : <span th:text="${users.id}"></span></p>
-  <p>사용자 password : <span th:text="${users.password}"></span></p>
+  <p>id : <span th:text="${users.id}"></span></p>
+  <a th:href="@{/student/view}">학생 리스트</a>
+  <a th:href="@{/student/register}">추가</a>
+
+  <br/>
   <form action="/logout">
     <input type="submit"  value="logout"/>
   </form>
-  <form action="/student">
-    studentId : <input type="text"  size="10" name="id" />
-    <input type="submit" />
-  </form>
+
+
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.nhnacademy.edu.springboot.practice.controller;
 
-import com.nhnacademy.edu.springboot.practice.domain.StudentRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.domain.StudentRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.service.StudentService;
 import javax.validation.Valid;
@@ -24,12 +24,12 @@ public class StudentRegisterController {
      }
 
      @PostMapping
-     public String postStudentRegister(@Valid @ModelAttribute StudentRegisterRequest studentRequest,
+     public String postStudentRegister(@Valid @ModelAttribute StudentRequest studentRequest,
                                        Model model){
 
           Student student = studentService.studentRegister(studentRequest);
           model.addAttribute("student", student);
-          return "studentView";
+          return "home";
 
      }
 }

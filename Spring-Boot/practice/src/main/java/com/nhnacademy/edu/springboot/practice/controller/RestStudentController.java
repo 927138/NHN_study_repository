@@ -1,9 +1,6 @@
 package com.nhnacademy.edu.springboot.practice.controller;
 
-import com.nhnacademy.edu.springboot.practice.domain.StudentModifyRequest;
-import com.nhnacademy.edu.springboot.practice.domain.StudentRegisterRequest;
-import com.nhnacademy.edu.springboot.practice.domain.UserPasswordModifyRequest;
-import com.nhnacademy.edu.springboot.practice.domain.UserRegisterRequest;
+import com.nhnacademy.edu.springboot.practice.domain.StudentRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
 import com.nhnacademy.edu.springboot.practice.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -28,13 +25,13 @@ public class RestStudentController {
      }
 
      @PostMapping("/students")
-     public ResponseEntity<Student> postStudentRegister(@RequestBody StudentRegisterRequest registerRequest){
+     public ResponseEntity<Student> postStudentRegister(@RequestBody StudentRequest registerRequest){
           return ResponseEntity.ok(studentService.studentRegister(registerRequest));
      }
 
      @PutMapping("/students/{studentId}")
      public ResponseEntity<Student> putStudentModify(@PathVariable("studentId") Long id,
-                                               @RequestBody StudentModifyRequest modifyRequest){
+                                               @RequestBody StudentRequest modifyRequest){
           return ResponseEntity.ok(studentService.studentModify(id, modifyRequest));
      }
 
