@@ -21,23 +21,23 @@ public class RestUserController {
 
      private final UserService userService;
 
-     @GetMapping("/user/{userId}")
+     @GetMapping("/users/{userId}")
      public ResponseEntity<User> getUser(@PathVariable("userId") String id){
           return ResponseEntity.ok(userService.getUser(id));
      }
 
-     @PostMapping("/user")
+     @PostMapping("/users")
      public ResponseEntity<User> postUserRegister(@RequestBody UserRegisterRequest userRegisterRequest){
           return ResponseEntity.ok(userService.userRegister(userRegisterRequest));
      }
 
-     @PutMapping("/user/{userId}")
+     @PutMapping("/users/{userId}")
      public ResponseEntity<User> putUserModify(@PathVariable("userId") String id,
                                                @RequestBody UserPasswordModifyRequest modifyRequest){
           return ResponseEntity.ok(userService.userPasswordModify(id, modifyRequest));
      }
 
-     @DeleteMapping("/user/{userId}")
+     @DeleteMapping("/users/{userId}")
      public ResponseEntity<User> deleteUser(@PathVariable("userId") String id){
           userService.userDelete(id);
           return ResponseEntity.ok().build();

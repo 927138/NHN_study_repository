@@ -3,6 +3,7 @@ package com.nhnacademy.edu.springboot.practice.service;
 import com.nhnacademy.edu.springboot.practice.domain.StudentModifyRequest;
 import com.nhnacademy.edu.springboot.practice.domain.StudentRegisterRequest;
 import com.nhnacademy.edu.springboot.practice.entity.Student;
+import com.nhnacademy.edu.springboot.practice.exception.StudentAlreadyExistsException;
 import com.nhnacademy.edu.springboot.practice.exception.StudentNotFoundException;
 import com.nhnacademy.edu.springboot.practice.repository.StudentRepository;
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class StudentServiceImp implements StudentService{
      public Student studentRegister(StudentRegisterRequest registerRequest) {
           boolean present = studentRepository.findById(registerRequest.getId()).isPresent();
           if(present)
-               throw new StudentNotFoundException();
+               throw new StudentAlreadyExistsException();
 
           Student student = new Student();
           student.setId(registerRequest.getId());

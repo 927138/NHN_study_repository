@@ -35,10 +35,10 @@ public class UserServiceImp implements UserService{
           Optional<User> userOptional = userRepository.findById(registerRequest.getId());
 
           boolean present = userOptional.isPresent();
-          if(!present)
+          if(present)
                throw new UserAlreadyExistsException();
 
-          User user = userOptional.get();
+          User user = new User();
           user.setId(registerRequest.getId());
           user.setPassword(registerRequest.getPassword());
 

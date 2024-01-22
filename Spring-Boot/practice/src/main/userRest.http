@@ -1,4 +1,4 @@
-POST localhost:8080/user
+POST localhost:8080/users
 Content-Type: application/json
 
 {
@@ -8,11 +8,11 @@ Content-Type: application/json
 
 ###
 
-GET localhost:8080/user/user
+GET localhost:8080/users/user
 
 ###
 
-PUT localhost:8080/user/user
+PUT localhost:8080/users/user
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 ###
 
 
-DELETE localhost:8080/user/user
+DELETE localhost:8080/users/user

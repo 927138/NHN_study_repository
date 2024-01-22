@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping({"/login", "/"})
+@RequestMapping({"/login"})
 public class LoginController {
      private final UserService userService;
      private final String USER_ID = "userId";
