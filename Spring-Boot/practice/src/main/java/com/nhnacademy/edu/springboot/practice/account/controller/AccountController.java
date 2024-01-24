@@ -25,18 +25,18 @@ public class AccountController {
           return accountService.getAccounts();
      }
 
-     @GetMapping("/account/{id}")
+     @GetMapping("/accounts/{id}")
      public Account getAccount(@PathVariable("id") Long id){
           return accountService.getAccount(id);
      }
 
-     @PostMapping("/account")
+     @PostMapping("/accounts")
      @ResponseStatus(HttpStatus.CREATED)
      public Account createAccount(@RequestBody Account account){
           return accountService.createAccount(account);
      }
 
-     @DeleteMapping("/account/{id}")
+     @DeleteMapping("/accounts/{id}")
      public String deleteAccount(@PathVariable("id") Long id){
           accountService.deleteAccount(id);
           return "{\"result\":\"OK\"}";
