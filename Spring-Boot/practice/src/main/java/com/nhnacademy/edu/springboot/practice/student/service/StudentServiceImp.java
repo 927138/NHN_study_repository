@@ -21,6 +21,6 @@ public class StudentServiceImp implements StudentService{
 
      @Override
      public List<Student> getStudents() {
-          return null;
+          return studentRepository.findAll();
      }
 }

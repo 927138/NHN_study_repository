@@ -1,6 +1,7 @@
 package com.nhnacademy.edu.springboot.practice.account.controller;
 
 import com.nhnacademy.edu.springboot.practice.account.domain.Account;
+import com.nhnacademy.edu.springboot.practice.account.domain.Ok;
 import com.nhnacademy.edu.springboot.practice.account.service.AccountService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -25,21 +26,21 @@ public class AccountController {
           return accountService.getAccounts();
      }
 
-     @GetMapping("/account/{id}")
+     @GetMapping("/accounts/{id}")
      public Account getAccount(@PathVariable("id") Long id){
           return accountService.getAccount(id);
      }
 
-     @PostMapping("/account")
+     @PostMapping("/accounts")
      @ResponseStatus(HttpStatus.CREATED)
      public Account createAccount(@RequestBody Account account){
           return accountService.createAccount(account);
      }
 
-     @DeleteMapping("/account/{id}")
-     public String deleteAccount(@PathVariable("id") Long id){
+     @DeleteMapping("/accounts/{id}")
+     public Ok deleteAccount(@PathVariable("id") Long id){
           accountService.deleteAccount(id);
-          return "{\"result\":\"OK\"}";
+          return new Ok("OK");
      }
 
 }

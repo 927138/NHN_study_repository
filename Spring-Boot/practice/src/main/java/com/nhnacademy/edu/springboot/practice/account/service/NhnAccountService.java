@@ -23,6 +23,7 @@ public class NhnAccountService implements AccountService{
      public Account createAccount(Account account) {
           Account account1 = new Account();
           account1.setId(account.getId());
+          account1.setName(account.getName());
           account1.setNumber(account.getNumber());
           account1.setBalance(account.getBalance());
 

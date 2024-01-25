@@ -10,8 +10,8 @@ public class DummyStudentRepository implements StudentRepository{
      @Override
      public List<Student> findAll() {
           return List.of(
-                  new Student("장재훈" , 100),
-                  new Student("정숭조", 80)
+                  new Student("aa" , 100),
+                  new Student("bb", 80)
           );
      }
 }
