@@ -9,10 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 public class PracticeApplication {
 
      public static void main(String[] args) {
-          // static method
-//		SpringApplication.run(StudentApplication.class, args);
-
-          //construct
           SpringApplication application = new SpringApplication(PracticeApplication.class);
           application.run(args);
 
